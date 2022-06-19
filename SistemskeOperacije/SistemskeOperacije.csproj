@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KoordinatorSO\LoginSO.cs" />
+    <Compile Include="MestoSO\UcitajMestaSO.cs" />
     <Compile Include="OpstaSistemskaOperacija.cs" />
+    <Compile Include="PlasmanSO\ZapamtiRezultatSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TakmicarSO\AzurirajTakmicaraSO.cs" />
     <Compile Include="TakmicarSO\ObrisiTakmicaraSO.cs" />
@@ -49,6 +52,15 @@
     <Compile Include="TakmicarSO\TraziTakmicareSO.cs" />
     <Compile Include="TakmicarSO\UcitajTakmicareSO.cs" />
     <Compile Include="TakmicarSO\ZapamtiTakmicaraSO.cs" />
+    <Compile Include="TakmicenjeSO\PrikaziTakmicenjeSO.cs" />
+    <Compile Include="TakmicenjeSO\TraziTakmicenjaSO.cs" />
+    <Compile Include="TakmicenjeSO\UcitajTakmicenjaSO.cs" />
+    <Compile Include="TakmicenjeSO\ZapamtiTakmicenjeSO.cs" />
+    <Compile Include="TimSO\AzurirajTimSO.cs" />
+    <Compile Include="TimSO\PrikaziTimSO.cs" />
+    <Compile Include="TimSO\TraziTimoveSO.cs" />
+    <Compile Include="TimSO\UcitajTimoveSO.cs" />
+    <Compile Include="TimSO\ZapamtiTimSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Broker\Broker.csproj">
@@ -60,8 +72,6 @@
       <Name>Domen</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TimSO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

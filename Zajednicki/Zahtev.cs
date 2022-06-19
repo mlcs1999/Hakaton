@@ -8,12 +8,14 @@ namespace Zajednicki
     {
         public Operacija Operacija { get; set; }
         public Takmicar Takmicar { get; set; }
+        public KoordinatorLogistike Koordinator { get; set; }
     }
 
     public enum Operacija
     {
         Login,
         ZapamtiTakmicara,
-        TraziTakmicare
+        TraziTakmicare,
+        AzurirajTakmicara
     }
 }

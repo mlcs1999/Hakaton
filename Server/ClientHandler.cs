@@ -1,4 +1,6 @@
 ﻿using Kontroler;
+using System;
+using System.IO;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using Zajednicki;
@@ -20,23 +22,46 @@ namespace Server
 
         internal void ObradiZahteve()
         {
-            while (true)
+            try
             {
-                Zahtev zahtev = (Zahtev)formatter.Deserialize(stream);
-                Odgovor odgovor = new Odgovor();
-
-                switch (zahtev.Operacija)
+                while (true)
                 {
-                    case Operacija.Login:
-                        break;
-                    case Operacija.ZapamtiTakmicara:
-                        ZapamtiTakmicare(zahtev, odgovor);
-                        break;
-                    case Operacija.TraziTakmicare:
-                        TraziTakmicare(zahtev, odgovor);
-                        break;
+                    Zahtev zahtev = (Zahtev)formatter.Deserialize(stream);
+                    Odgovor odgovor = new Odgovor();
+
+                    switch (zahtev.Operacija)
+                    {
+                        case Operacija.Login:
+                            Login(zahtev, odgovor);
+                            break;
+                        case Operacija.ZapamtiTakmicara:
+                            ZapamtiTakmicara(zahtev, odgovor);
+                            break;
+                        case Operacija.TraziTakmicare:
+                            TraziTakmicare(zahtev, odgovor);
+                            break;
+                        case Operacija.AzurirajTakmicara:
+                            AzurirajTakmicara(zahtev, odgovor);
+                            break;
+                    }
                 }
             }
+            catch (IOException)
+            {
+            }
+        }
+
+        private void Login(Zahtev zahtev, Odgovor odgovor)
+        {
+            odgovor.Koordinator = Controller.Instance.Login(zahtev.Koordinator);
+            odgovor.Signal = odgovor.Koordinator != null ? Signal.UspesnoPrijavljenKoordinator : Signal.GreskaPriZahtevu;
+            formatter.Serialize(stream, odgovor);
+        }
+
+        private void AzurirajTakmicara(Zahtev zahtev, Odgovor odgovor)
+        {
+            odgovor.Signal = Controller.Instance.AzurirajTakmicara(zahtev.Takmicar) ? Signal.UspesnoAzuriranTakmicar : Signal.GreskaPriZahtevu;
+            formatter.Serialize(stream, odgovor);
         }
 
         private void TraziTakmicare(Zahtev zahtev, Odgovor odgovor)
@@ -46,7 +71,7 @@ namespace Server
             formatter.Serialize(stream, odgovor);
         }
 
-        private void ZapamtiTakmicare(Zahtev zahtev, Odgovor odgovor)
+        private void ZapamtiTakmicara(Zahtev zahtev, Odgovor odgovor)
         {
             odgovor.Signal = Controller.Instance.ZapamtiTakmicara(zahtev.Takmicar) ? Signal.UspesnoZapamcenTakmicar : Signal.GreskaPriZahtevu;
             formatter.Serialize(stream, odgovor);

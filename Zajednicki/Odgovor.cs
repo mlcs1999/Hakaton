@@ -9,12 +9,15 @@ namespace Zajednicki
     {
         public Signal Signal { get; set; }
         public List<Takmicar> Takmicari { get; set; }
+        public KoordinatorLogistike Koordinator { get; set; }
     }
 
     public enum Signal
     {
         UspesnoZapamcenTakmicar,
         GreskaPriZahtevu,
-        UspesnaPretragaTakmicara
+        UspesnaPretragaTakmicara,
+        UspesnoAzuriranTakmicar,
+        UspesnoPrijavljenKoordinator
     }
 }

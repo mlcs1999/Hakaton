@@ -10,6 +10,7 @@ namespace Domen
         public int TimId { get; set; }
         public string Naziv { get; set; }
         public List<Takmicar> Takmicari { get; set; }
+        public List<Plasman> Plasmani { get; set; }
 
         public string NazivTabele => "Tim";
 

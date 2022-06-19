@@ -8,6 +8,7 @@ namespace SistemskeOperacije.TakmicarSO
     {
         protected override object Izvrsavanje(OpstiDomenskiObjekat domenskiObjekat)
         {
+            //kastujem za brokera
             return broker.VratiSve((Takmicar)domenskiObjekat)
                          .OfType<Takmicar>()
                          .ToList()
