@@ -43,12 +43,51 @@ namespace Server
                         case Operacija.AzurirajTakmicara:
                             AzurirajTakmicara(zahtev, odgovor);
                             break;
+                        case Operacija.ObrisiTakmicara:
+                            ObrisiTakmicara(zahtev, odgovor);
+                            break;
+                        case Operacija.PrikaziTakmicara:
+                            PrikaziTakmicara(zahtev, odgovor);
+                            break;
+                        case Operacija.UcitajTakmicare:
+                            UcitajTakmicare(zahtev, odgovor);
+                            break;
+                        case Operacija.UcitajTimove:
+                            UcitajTimove(zahtev, odgovor);
+                            break;
                     }
                 }
             }
             catch (IOException)
             {
             }
+        }
+
+        private void UcitajTimove(Zahtev zahtev, Odgovor odgovor)
+        {
+            odgovor.Timovi = Controller.Instance.UcitajTimove();
+            odgovor.Signal = odgovor.Timovi != null ? Signal.TimoviUspesnoVraceni : Signal.GreskaPriZahtevu;
+            formatter.Serialize(stream, odgovor);
+        }
+
+        private void UcitajTakmicare(Zahtev zahtev, Odgovor odgovor)
+        {
+            odgovor.Takmicari = Controller.Instance.UcitajTakmicare();
+            odgovor.Signal = odgovor.Takmicari != null ? Signal.TakmicariUspesnoVraceni : Signal.GreskaPriZahtevu;
+            formatter.Serialize(stream, odgovor);
+        }
+
+        private void PrikaziTakmicara(Zahtev zahtev, Odgovor odgovor)
+        {
+            odgovor.Takmicar = Controller.Instance.PrikaziTakmicara(zahtev.Takmicar);
+            odgovor.Signal = odgovor.Takmicar != null ? Signal.TakmicarUspesnoNadjen : Signal.GreskaPriZahtevu;
+            formatter.Serialize(stream, odgovor);
+        }
+
+        private void ObrisiTakmicara(Zahtev zahtev, Odgovor odgovor)
+        {
+            odgovor.Signal = Controller.Instance.ObrisiTakmicara(zahtev.Takmicar) ? Signal.TakmicarUspesnoObrisan : Signal.GreskaPriZahtevu;
+            formatter.Serialize(stream, odgovor);
         }
 
         private void Login(Zahtev zahtev, Odgovor odgovor)

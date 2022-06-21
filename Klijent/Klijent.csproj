@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forme\FrmKreiranjeTakmicara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FrmKreiranjeTakmicara.Designer.cs">
+      <DependentUpon>FrmKreiranjeTakmicara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FrmKreiranjeTakmicenja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FrmKreiranjeTakmicenja.Designer.cs">
+      <DependentUpon>FrmKreiranjeTakmicenja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FrmKreiranjeTima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FrmKreiranjeTima.Designer.cs">
+      <DependentUpon>FrmKreiranjeTima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FrmPregledTakmicara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FrmPregledTakmicara.Designer.cs">
+      <DependentUpon>FrmPregledTakmicara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FrmPregledTimova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FrmPregledTimova.Designer.cs">
+      <DependentUpon>FrmPregledTimova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FrmUnosRezultata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FrmUnosRezultata.Designer.cs">
+      <DependentUpon>FrmUnosRezultata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGlavna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGlavna.Designer.cs">
+      <DependentUpon>FrmGlavna.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,8 +97,22 @@
     </Compile>
     <Compile Include="Komunikacija.cs" />
     <Compile Include="Kontroleri\LoginController.cs" />
+    <Compile Include="Kontroleri\ObradaTakmicaraController.cs" />
+    <Compile Include="Kontroleri\PrikazTakmicaraController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forme\FrmKreiranjeTakmicara.resx">
+      <DependentUpon>FrmKreiranjeTakmicara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FrmKreiranjeTakmicenja.resx">
+      <DependentUpon>FrmKreiranjeTakmicenja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FrmPregledTakmicara.resx">
+      <DependentUpon>FrmPregledTakmicara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGlavna.resx">
+      <DependentUpon>FrmGlavna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +151,9 @@
       <Project>{B8EAC2B2-F974-43A7-A834-319F30EBDB65}</Project>
       <Name>Zajednicki</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\glavnaFRM.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

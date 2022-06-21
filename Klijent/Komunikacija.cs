@@ -46,6 +46,122 @@ namespace Klijent
                 return false;
             }
         }
+        internal List<Takmicar> UcitajTakmicare()
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.UcitajTakmicare
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.TakmicariUspesnoVraceni)
+            {
+                return odgovor.Takmicari;
+            }
+            return null;
+        }
+
+        internal Takmicar PrikaziTakmicara(Takmicar takmicar)
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.PrikaziTakmicara,
+                Takmicar = takmicar
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.TakmicarUspesnoNadjen)
+            {
+                return odgovor.Takmicar;
+            }
+            return null;
+        }
+
+        internal bool ObrisiTakmicara(Takmicar takmicar)
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.ObrisiTakmicara,
+                Takmicar = takmicar
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.TakmicarUspesnoObrisan)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        internal List<Takmicar> TraziTakmicare(Takmicar takmicar)
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.TraziTakmicare,
+                Takmicar = takmicar
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.UspesnaPretragaTakmicara)
+            {
+                return odgovor.Takmicari;
+            }
+            return null;
+        }
+
+        internal List<Tim> UcitajTimove()
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.UcitajTimove
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.TimoviUspesnoVraceni)
+            {
+                return odgovor.Timovi;
+            }
+            return null;
+        }
+
+        internal bool AzurirajTakmicara(Takmicar takmicar)
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.AzurirajTakmicara,
+                Takmicar = takmicar
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.UspesnoAzuriranTakmicar)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        internal bool ZapamtiTakmicara(Takmicar takmicar)
+        {
+            Zahtev zahtev = new Zahtev()
+            {
+                Operacija = Operacija.ZapamtiTakmicara,
+                Takmicar = takmicar
+            };
+
+            formatter.Serialize(stream, zahtev);
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            if (odgovor.Signal == Signal.UspesnoZapamcenTakmicar)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public KoordinatorLogistike Login(KoordinatorLogistike koordinator)
         {

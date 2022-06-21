@@ -10,6 +10,8 @@ namespace Zajednicki
         public Signal Signal { get; set; }
         public List<Takmicar> Takmicari { get; set; }
         public KoordinatorLogistike Koordinator { get; set; }
+        public List<Tim> Timovi { get; set; }
+        public Takmicar Takmicar { get; set; }
     }
 
     public enum Signal
@@ -18,6 +20,10 @@ namespace Zajednicki
         GreskaPriZahtevu,
         UspesnaPretragaTakmicara,
         UspesnoAzuriranTakmicar,
-        UspesnoPrijavljenKoordinator
+        UspesnoPrijavljenKoordinator,
+        TimoviUspesnoVraceni,
+        TakmicariUspesnoVraceni,
+        TakmicarUspesnoObrisan,
+        TakmicarUspesnoNadjen
     }
 }

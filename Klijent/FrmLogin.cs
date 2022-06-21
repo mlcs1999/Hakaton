@@ -1,5 +1,6 @@
 ﻿using Klijent.Kontroleri;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace Klijent
@@ -14,7 +15,14 @@ namespace Klijent
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(loginController.Login(txtUsername.Text, txtPassword.Text));
+            var message = loginController.Login(txtUsername.Text, txtPassword.Text);
+            MessageBox.Show(message);
+
+            if(message != ConfigurationManager.AppSettings["neuspesnaPrijava"] &&
+               message != ConfigurationManager.AppSettings["neuspesnoPovezivanje"])
+            {
+                loginController.PokreniGlavnuFormu();
+            }
         }
     }
 }

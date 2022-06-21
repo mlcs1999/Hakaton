@@ -16,6 +16,10 @@ namespace Zajednicki
         Login,
         ZapamtiTakmicara,
         TraziTakmicare,
-        AzurirajTakmicara
+        AzurirajTakmicara,
+        UcitajTimove,
+        UcitajTakmicare,
+        ObrisiTakmicara,
+        PrikaziTakmicara
     }
 }

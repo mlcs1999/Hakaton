@@ -7,7 +7,7 @@ namespace Domen
     [Serializable]
     public class Tim : OpstiDomenskiObjekat
     {
-        public int TimId { get; set; }
+        public int? TimId { get; set; }
         public string Naziv { get; set; }
         public List<Takmicar> Takmicari { get; set; }
         public List<Plasman> Plasmani { get; set; }
@@ -42,6 +42,11 @@ namespace Domen
             }
 
             return timovi;
+        }
+
+        public override string ToString()
+        {
+            return Naziv;
         }
     }
 }

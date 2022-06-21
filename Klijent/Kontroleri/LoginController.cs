@@ -1,6 +1,7 @@
 ﻿using Domen;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Klijent.Kontroleri
         {
             if(!Komunikacija.Instance.Konektuj())
             {
-                return "Server nije pokrenut!";
+                return ConfigurationManager.AppSettings["neuspesnoPovezivanje"];
             }
 
             KoordinatorLogistike koordinator = new KoordinatorLogistike
@@ -25,12 +26,19 @@ namespace Klijent.Kontroleri
             var koord = Komunikacija.Instance.Login(koordinator);
             if(koord != null)
             {
+
                 return $"Dobrodosli, {koord.Ime} {koord.Prezime}";
             }
             else
             {
-                return "Neuspesno prijavljivanje!";
+                return ConfigurationManager.AppSettings["neuspesnaPrijava"];
             }
+        }
+
+        internal void PokreniGlavnuFormu()
+        {
+            FrmGlavna frm = new FrmGlavna();
+            frm.ShowDialog();
         }
     }
 }
