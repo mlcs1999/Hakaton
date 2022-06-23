@@ -65,5 +65,10 @@ namespace Domen
 
             return takmicari;
         }
+
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
     }
 }

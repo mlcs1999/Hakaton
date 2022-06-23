@@ -22,6 +22,7 @@ namespace Server
             Thread nit = new Thread(server.Start);
             nit.IsBackground = true;
             nit.Start();
+            txtServer.Text = "Server je pokrenut!";
 
             btnStop.Enabled = true;
             btnStart.Enabled = false;
@@ -30,7 +31,7 @@ namespace Server
         private void btnStop_Click(object sender, EventArgs e)
         {
             server.Stop();
-
+            txtServer.Text = "Server je prekinut!";
             btnStop.Enabled = false;
             btnStart.Enabled = true;
         }

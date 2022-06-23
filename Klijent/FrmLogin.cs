@@ -7,7 +7,6 @@ namespace Klijent
 {
     public partial class FrmLogin : Form
     {
-        LoginController loginController = new LoginController();
         public FrmLogin()
         {
             InitializeComponent();
@@ -15,13 +14,13 @@ namespace Klijent
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            var message = loginController.Login(txtUsername.Text, txtPassword.Text);
+            var message = LoginController.Instance.Login(txtUsername.Text, txtPassword.Text);
             MessageBox.Show(message);
 
             if(message != ConfigurationManager.AppSettings["neuspesnaPrijava"] &&
                message != ConfigurationManager.AppSettings["neuspesnoPovezivanje"])
             {
-                loginController.PokreniGlavnuFormu();
+                LoginController.Instance.PokreniGlavnuFormu();
             }
         }
     }

@@ -65,13 +65,13 @@ namespace Server
                 ZatvoriKlijentskeSokete();
             }
         }
-
         private void ZatvoriKlijentskeSokete()
         {
-            clientHandlers.ForEach(clientHanlder =>
+            foreach (ClientHandler c in clientHandlers)
             {
-                clientHanlder.klijentskiSoket.Close();
-            });
+                c.klijentskiSoket.Close();
+            }
+            clientHandlers.Clear();
         }
         #endregion
     }

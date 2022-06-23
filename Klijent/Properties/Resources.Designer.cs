@@ -63,6 +63,16 @@ namespace Klijent.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FrmGlavna {
+            get {
+                object obj = ResourceManager.GetObject("FrmGlavna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FrmLogin {
             get {
                 object obj = ResourceManager.GetObject("FrmLogin", resourceCulture);

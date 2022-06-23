@@ -1,18 +1,13 @@
 ﻿using Klijent.Kontroleri;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Klijent.Forme
 {
     public partial class FrmPregledTakmicara : Form
     {
+        bool izmena = false;
+
         public FrmPregledTakmicara()
         {
             InitializeComponent();
@@ -28,7 +23,21 @@ namespace Klijent.Forme
 
         private void BtnPretraziTakmicara_Click(object sender, EventArgs e)
         {
-            PrikazTakmicaraController.Instance.PretraziTakmicare(txtPretragaTakmicara.Text);
+            if(PrikazTakmicaraController.Instance.PretraziTakmicare(txtPretragaTakmicara.Text))
+            {
+                if(!izmena)
+                {
+                    MessageBox.Show("Sistem je nasao takmicare po zadatoj vrednosti!");
+                }
+            }
+            else
+            {
+                if(!izmena)
+                {
+                    MessageBox.Show("Sistem ne moze da nadje takmicare po zadatoj vrednosti!");
+                }
+            }
+            izmena = false;
         }
 
         private void BtnObrisiTakmicara_Click(object sender, EventArgs e)
@@ -62,8 +71,15 @@ namespace Klijent.Forme
                 var red = dgvTakmicari.SelectedRows[0];
                 if (red != null)
                 {
-                    PrikazTakmicaraController.Instance.AzurirajTakmicara(red.DataBoundItem);
-                    BtnPretraziTakmicara_Click(sender, e);
+                    if(PrikazTakmicaraController.Instance.AzurirajTakmicara(red.DataBoundItem) != null)
+                    {
+                        izmena = true;
+                        BtnPretraziTakmicara_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sistem ne moze da pronadje podatke o izabranom takmicaru!");
+                    }
                 }
             }
             catch (ArgumentOutOfRangeException)

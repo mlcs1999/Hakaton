@@ -10,6 +10,17 @@ namespace Klijent.Kontroleri
 {
     class LoginController
     {
+        #region singleton
+        private static LoginController instance;
+        public static LoginController Instance
+        {
+            get
+            {
+                if (instance == null) instance = new LoginController();
+                return instance;
+            }
+        }
+        #endregion
         internal string Login(string username, string password)
         {
             if(!Komunikacija.Instance.Konektuj())

@@ -16,6 +16,7 @@ namespace SistemskeOperacije.TakmicenjeSO
 
             var takmicenjeId = broker.VratiMaxId(new Takmicenje());
 
+            int redniBroj = 1;
             foreach (var plasman in takmicenje.Plasmani)
             {
                 plasman.Takmicenje = new Takmicenje
@@ -23,6 +24,8 @@ namespace SistemskeOperacije.TakmicenjeSO
                     TakmicenjeId = takmicenjeId
                 };
 
+                plasman.RedniBroj = redniBroj++;
+                
                if(broker.Sacuvaj(plasman) <= 0)
                 {
                     throw new Exception("Plasman nije sacuvan za dato takmicenje.");

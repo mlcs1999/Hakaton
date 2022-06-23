@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 
 namespace Domen
@@ -12,20 +13,28 @@ namespace Domen
         public List<Takmicar> Takmicari { get; set; }
         public List<Plasman> Plasmani { get; set; }
 
+        [Browsable (false)]
         public string NazivTabele => "Tim";
 
+        [Browsable(false)]
         public string PovratneVrednosti => "*";
 
-        public string VrednostiZaUnos => $"{Naziv}";
+        [Browsable(false)]
+        public string VrednostiZaUnos => $"'{Naziv}'";
 
+        [Browsable(false)]
         public string VrednostiZaIzmenu => $"naziv = '{Naziv}'";
 
+        [Browsable(false)]
         public string KriterijumObrade => $"timId = {TimId}";
 
+        [Browsable(false)]
         public string KriterijumPretrage => $"naziv like '%{Naziv}%'";
 
+        [Browsable(false)]
         public string Join => string.Empty;
 
+        [Browsable(false)]
         public List<OpstiDomenskiObjekat> ProcitajObjekte(SqlDataReader reader)
         {
             List<OpstiDomenskiObjekat> timovi = new List<OpstiDomenskiObjekat>();
@@ -44,6 +53,7 @@ namespace Domen
             return timovi;
         }
 
+        [Browsable(false)]
         public override string ToString()
         {
             return Naziv;

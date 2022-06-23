@@ -83,6 +83,7 @@ namespace Kontroler
 
             var rezultat = operacija.IzvrsiSO(tim);
 
+
             if(rezultat is bool)
             {
                 return (bool)rezultat;
@@ -121,7 +122,7 @@ namespace Kontroler
         {
             OpstaSistemskaOperacija operacija = new ZapamtiTakmicenjeSO();
 
-            var rezultat = (bool)operacija.IzvrsiSO(takmicenje);
+            var rezultat = (bool?)operacija.IzvrsiSO(takmicenje);
             if(rezultat is bool)
             {
                 return (bool)rezultat;
@@ -159,7 +160,7 @@ namespace Kontroler
         public bool ZapamtiRezultat(List<Plasman> plasmani)
         {
             OpstaSistemskaOperacija operacija = new ZapamtiRezultatSO(plasmani);
-            var rezultat = (bool)operacija.IzvrsiSO(new Plasman());
+            var rezultat = (bool?)operacija.IzvrsiSO(new Plasman());
             if(rezultat is bool)
             {
                 return (bool)rezultat;

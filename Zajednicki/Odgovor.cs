@@ -12,6 +12,10 @@ namespace Zajednicki
         public KoordinatorLogistike Koordinator { get; set; }
         public List<Tim> Timovi { get; set; }
         public Takmicar Takmicar { get; set; }
+        public Tim Tim { get; set; }
+        public List<Mesto> Mesta { get; set; }
+        public List<Takmicenje> Takmicenja { get; set; }
+        public Takmicenje Takmicenje { get; set; }
     }
 
     public enum Signal
@@ -24,6 +28,16 @@ namespace Zajednicki
         TimoviUspesnoVraceni,
         TakmicariUspesnoVraceni,
         TakmicarUspesnoObrisan,
-        TakmicarUspesnoNadjen
+        TakmicarUspesnoNadjen,
+        UspesnoZapamcenTim,
+        UspesnoAzuriranTim,
+        UspesnaPretragaTimova,
+        TimUspesnoNadjen,
+        MestaUspesnoVracena,
+        UspesnoZapamcenoTakmicenje,
+        UspesnaPretragaTakmicenja,
+        TakmicenjaUspesnoVracena,
+        TakmicenjeUspesnoNadjeno,
+        UspesnoZapamcenRezultat
     }
 }

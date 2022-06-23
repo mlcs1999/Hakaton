@@ -40,5 +40,10 @@ namespace Domen
 
             return mesta;
         }
+
+        public override string ToString()
+        {
+            return $"{Naziv}";
+        }
     }
 }

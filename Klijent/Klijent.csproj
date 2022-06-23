@@ -47,41 +47,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forme\FrmKreiranjeTakmicara.cs">
+    <Compile Include="Forme\FormeTakmicar\FrmKreiranjeTakmicara.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\FrmKreiranjeTakmicara.Designer.cs">
+    <Compile Include="Forme\FormeTakmicar\FrmKreiranjeTakmicara.Designer.cs">
       <DependentUpon>FrmKreiranjeTakmicara.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\FrmKreiranjeTakmicenja.cs">
+    <Compile Include="Forme\FormeTakmicenje\FrmKreiranjeTakmicenja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\FrmKreiranjeTakmicenja.Designer.cs">
+    <Compile Include="Forme\FormeTakmicenje\FrmKreiranjeTakmicenja.Designer.cs">
       <DependentUpon>FrmKreiranjeTakmicenja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\FrmKreiranjeTima.cs">
+    <Compile Include="Forme\FormeTakmicenje\FrmPretragaTakmicenja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\FrmKreiranjeTima.Designer.cs">
+    <Compile Include="Forme\FormeTakmicenje\FrmPretragaTakmicenja.Designer.cs">
+      <DependentUpon>FrmPretragaTakmicenja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FormeTakmicenje\FrmUnosRezultata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FormeTakmicenje\FrmUnosRezultata.Designer.cs">
+      <DependentUpon>FrmUnosRezultata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\FormeTim\FrmKreiranjeTima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FormeTim\FrmKreiranjeTima.Designer.cs">
       <DependentUpon>FrmKreiranjeTima.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\FrmPregledTakmicara.cs">
+    <Compile Include="Forme\FormeTakmicar\FrmPregledTakmicara.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\FrmPregledTakmicara.Designer.cs">
+    <Compile Include="Forme\FormeTakmicar\FrmPregledTakmicara.Designer.cs">
       <DependentUpon>FrmPregledTakmicara.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\FrmPregledTimova.cs">
+    <Compile Include="Forme\FormeTim\FrmPretragaTima.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\FrmPregledTimova.Designer.cs">
-      <DependentUpon>FrmPregledTimova.cs</DependentUpon>
+    <Compile Include="Forme\FormeTim\FrmPretragaTima.Designer.cs">
+      <DependentUpon>FrmPretragaTima.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\FrmUnosRezultata.cs">
+    <Compile Include="Forme\FormeTim\FrmPromenaPodatakaTima.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\FrmUnosRezultata.Designer.cs">
-      <DependentUpon>FrmUnosRezultata.cs</DependentUpon>
+    <Compile Include="Forme\FormeTim\FrmPromenaPodatakaTima.Designer.cs">
+      <DependentUpon>FrmPromenaPodatakaTima.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGlavna.cs">
       <SubType>Form</SubType>
@@ -96,19 +108,40 @@
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Komunikacija.cs" />
+    <Compile Include="Kontroleri\KreiranjaTakmicenjaController.cs" />
+    <Compile Include="Kontroleri\KreiranjeTimaController.cs" />
     <Compile Include="Kontroleri\LoginController.cs" />
     <Compile Include="Kontroleri\ObradaTakmicaraController.cs" />
+    <Compile Include="Kontroleri\PretragaTakmicenjaController.cs" />
+    <Compile Include="Kontroleri\PretragaTimovaController.cs" />
     <Compile Include="Kontroleri\PrikazTakmicaraController.cs" />
+    <Compile Include="Kontroleri\PromenaPodataTimaController.cs" />
+    <Compile Include="Kontroleri\UnosRezultataController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forme\FrmKreiranjeTakmicara.resx">
+    <EmbeddedResource Include="Forme\FormeTakmicar\FrmKreiranjeTakmicara.resx">
       <DependentUpon>FrmKreiranjeTakmicara.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forme\FrmKreiranjeTakmicenja.resx">
+    <EmbeddedResource Include="Forme\FormeTakmicenje\FrmKreiranjeTakmicenja.resx">
       <DependentUpon>FrmKreiranjeTakmicenja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forme\FrmPregledTakmicara.resx">
+    <EmbeddedResource Include="Forme\FormeTakmicenje\FrmPretragaTakmicenja.resx">
+      <DependentUpon>FrmPretragaTakmicenja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FormeTakmicenje\FrmUnosRezultata.resx">
+      <DependentUpon>FrmUnosRezultata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FormeTim\FrmKreiranjeTima.resx">
+      <DependentUpon>FrmKreiranjeTima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FormeTakmicar\FrmPregledTakmicara.resx">
       <DependentUpon>FrmPregledTakmicara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FormeTim\FrmPretragaTima.resx">
+      <DependentUpon>FrmPretragaTima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\FormeTim\FrmPromenaPodatakaTima.resx">
+      <DependentUpon>FrmPromenaPodatakaTima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGlavna.resx">
       <DependentUpon>FrmGlavna.cs</DependentUpon>
@@ -154,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\glavnaFRM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\FrmGlavna.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿using Domen;
 using Klijent.Forme;
-using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Klijent.Kontroleri
 {
@@ -23,15 +23,20 @@ namespace Klijent.Kontroleri
 
         internal BindingList<Takmicar> VratiSveTakmicare()
         {
+            takmicari.Clear();
             var takmicariDB = Komunikacija.Instance.UcitajTakmicare();
-            foreach (var t in takmicariDB)
+            if(takmicariDB != null)
             {
-                takmicari.Add(t);
+                foreach (var t in takmicariDB)
+                {
+                    takmicari.Add(t);
+                }
             }
+
             return takmicari;
         }
 
-        internal void PretraziTakmicare(string kriterijum)
+        internal bool PretraziTakmicare(string kriterijum)
         {
             takmicari.Clear();
             var takmicariDB = Komunikacija.Instance.TraziTakmicare(new Takmicar
@@ -39,10 +44,15 @@ namespace Klijent.Kontroleri
                 Ime = kriterijum
             }); 
 
-            foreach (var t in takmicariDB)
+            if(takmicariDB != null)
             {
-                takmicari.Add(t);
+                foreach (var t in takmicariDB)
+                {
+                    takmicari.Add(t);
+                }
+                return takmicariDB.Any();
             }
+            return false;
         }
 
         internal bool ObrisiTakmicara(object takmicar)
@@ -50,7 +60,7 @@ namespace Klijent.Kontroleri
             return Komunikacija.Instance.ObrisiTakmicara((Takmicar)takmicar);
         }
 
-        internal void AzurirajTakmicara(object dataBoundItem)
+        internal object AzurirajTakmicara(object dataBoundItem)
         {
             var takmicar = (Takmicar)dataBoundItem;
             //lazy loading
@@ -60,6 +70,7 @@ namespace Klijent.Kontroleri
                 FrmKreiranjeTakmicara frm = new FrmKreiranjeTakmicara(true, takmicarDB.TakmicarId, takmicarDB.JMBG, takmicarDB.Ime, takmicarDB.Prezime, takmicarDB.Pol, takmicarDB.Tim);
                 frm.ShowDialog();
             }
+            return takmicarDB;
         }
     }
 }

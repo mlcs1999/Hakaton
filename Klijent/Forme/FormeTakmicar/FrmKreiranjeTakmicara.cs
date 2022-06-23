@@ -56,16 +56,21 @@ namespace Klijent.Forme
         }
         private void BtnKreirajTakmicara_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtJMBG.Text) || string.IsNullOrEmpty(txtImeTakmicara.Text) || string.IsNullOrEmpty(txtPrezime.Text))
+            {
+                MessageBox.Show("Unesite sve neophodne podatke!");
+                return;
+            }
+
             if(izmena)
             {
                 if(ObradaTakmicaraController.Instance.IzmeniPodatkeTakmicara(txtTakmicarId.Text, txtJMBG.Text, txtImeTakmicara.Text, txtPrezime.Text, txtPol.Text, cmbTim.SelectedItem))
                 {
-                    MessageBox.Show("Sistem je zapamtio takmicara");
+                    MessageBox.Show("Sistem je zapamtio takmicara!");
                 }
                 else
                 {
-                    MessageBox.Show("Sistem ne moze da zapamti takmicara");
-
+                    MessageBox.Show("Sistem ne moze da zapamti takmicara!");
                 }
             }
             else
@@ -73,6 +78,7 @@ namespace Klijent.Forme
                 if(ObradaTakmicaraController.Instance.KreirajTakmicara(txtJMBG.Text, txtImeTakmicara.Text, txtPrezime.Text, txtPol.Text))
                 {
                     MessageBox.Show("Sistem je zapamtio takmicara");
+                    ResetujFormu();
                 }
                 else
                 {
@@ -81,6 +87,12 @@ namespace Klijent.Forme
             }
         }
 
-
+        private void ResetujFormu()
+        {
+            txtJMBG.Text = string.Empty;
+            txtImeTakmicara.Text = string.Empty;
+            txtPrezime.Text = string.Empty;
+            txtPol.Text = string.Empty;
+        }
     }
 }

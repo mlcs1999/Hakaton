@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPregledTakmicara));
             this.dgvTakmicari = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPretragaTakmicara = new System.Windows.Forms.TextBox();
@@ -41,7 +44,23 @@
             // 
             this.dgvTakmicari.AllowUserToAddRows = false;
             this.dgvTakmicari.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTakmicari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTakmicari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTakmicari.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTakmicari.Location = new System.Drawing.Point(23, 46);
             this.dgvTakmicari.Name = "dgvTakmicari";
             this.dgvTakmicari.RowHeadersWidth = 51;
@@ -52,9 +71,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(612, 46);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(613, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 17);
+            this.label1.Size = new System.Drawing.Size(147, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Kriterijum pretrage";
             // 
@@ -62,14 +84,15 @@
             // 
             this.txtPretragaTakmicara.Location = new System.Drawing.Point(615, 87);
             this.txtPretragaTakmicara.Name = "txtPretragaTakmicara";
-            this.txtPretragaTakmicara.Size = new System.Drawing.Size(134, 22);
+            this.txtPretragaTakmicara.Size = new System.Drawing.Size(144, 22);
             this.txtPretragaTakmicara.TabIndex = 2;
             // 
             // btnPretraziTakmicara
             // 
-            this.btnPretraziTakmicara.Location = new System.Drawing.Point(615, 138);
+            this.btnPretraziTakmicara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretraziTakmicara.Location = new System.Drawing.Point(616, 126);
             this.btnPretraziTakmicara.Name = "btnPretraziTakmicara";
-            this.btnPretraziTakmicara.Size = new System.Drawing.Size(134, 38);
+            this.btnPretraziTakmicara.Size = new System.Drawing.Size(144, 42);
             this.btnPretraziTakmicara.TabIndex = 3;
             this.btnPretraziTakmicara.Text = "Pretrazi";
             this.btnPretraziTakmicara.UseVisualStyleBackColor = true;
@@ -77,9 +100,10 @@
             // 
             // btnObrisiTakmicara
             // 
-            this.btnObrisiTakmicara.Location = new System.Drawing.Point(615, 297);
+            this.btnObrisiTakmicara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisiTakmicara.Location = new System.Drawing.Point(616, 293);
             this.btnObrisiTakmicara.Name = "btnObrisiTakmicara";
-            this.btnObrisiTakmicara.Size = new System.Drawing.Size(134, 37);
+            this.btnObrisiTakmicara.Size = new System.Drawing.Size(144, 41);
             this.btnObrisiTakmicara.TabIndex = 4;
             this.btnObrisiTakmicara.Text = "Obrisi";
             this.btnObrisiTakmicara.UseVisualStyleBackColor = true;
@@ -87,9 +111,10 @@
             // 
             // btnIzmeniTakmicara
             // 
-            this.btnIzmeniTakmicara.Location = new System.Drawing.Point(615, 237);
+            this.btnIzmeniTakmicara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIzmeniTakmicara.Location = new System.Drawing.Point(615, 234);
             this.btnIzmeniTakmicara.Name = "btnIzmeniTakmicara";
-            this.btnIzmeniTakmicara.Size = new System.Drawing.Size(134, 42);
+            this.btnIzmeniTakmicara.Size = new System.Drawing.Size(144, 42);
             this.btnIzmeniTakmicara.TabIndex = 5;
             this.btnIzmeniTakmicara.Text = "Izmeni";
             this.btnIzmeniTakmicara.UseVisualStyleBackColor = true;
@@ -99,6 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Klijent.Properties.Resources.FrmGlavna;
             this.ClientSize = new System.Drawing.Size(786, 367);
             this.Controls.Add(this.btnIzmeniTakmicara);
             this.Controls.Add(this.btnObrisiTakmicara);
@@ -106,9 +132,11 @@
             this.Controls.Add(this.txtPretragaTakmicara);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvTakmicari);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPregledTakmicara";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPregledTakmicara";
+            this.Text = "Pregled takmicara";
             this.Load += new System.EventHandler(this.FrmPregledTakmicara_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTakmicari)).EndInit();
             this.ResumeLayout(false);
